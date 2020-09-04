@@ -80,7 +80,8 @@ class TrainingBoardEdit extends Component {
     });
   }
   componentDidMount(){
-    Axios.get("http://localhost/Admin-backend/TrainingBoardEdit.php?id="+this.state.Year)
+    console.log(this.props.match.params.id);
+    Axios.get("http://localhost/Admin-backend/TrainingBoardEdit.php?id="+this.props.match.params.id)
     .then(response=>{
       this.setState({
         edit: response.data
@@ -128,27 +129,28 @@ class TrainingBoardEdit extends Component {
             <div className="row">
               <Col>
                 <Card.Title>
-                  <h3 align="center">
-                    Notice Board-Training
+                  <h5 align="center">
+                    Notice Board-Training&nbsp;
                     <Link onClick={this.toggleModal}>
-                      <FontAwesomeIcon icon={faPlus} size="xs" />
+                      <FontAwesomeIcon icon={faPlus} size="xs" className="p-1 fa-lg" style={{backgroundColor:'#2A324B',color:'white',fontSize:'20',borderRadius:'10'}}/>
                     </Link>
-                  </h3>
+                  </h5>
                 </Card.Title>
               </Col>
             </div>
             &nbsp;
             <div>
-              <Table size="sm" responsive>
-                <thead>
+              <Table size="sm" responsive striped>
+                <thead className="p-3" style={{backgroundColor:'#2A324B',color:'white',fontSize:'24px'}}>
                   <tr>
                     <th>From</th>
                     <th>To</th>
                     <th>Name of the Programme</th>
-                    <th>status</th>
+                    <th>Status</th>
+                    <th>Operations</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="p-1">
                   {this.userList()}
                </tbody>
               </Table>

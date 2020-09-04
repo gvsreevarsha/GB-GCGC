@@ -3,7 +3,7 @@ import {Table} from "reactstrap";
 import Axios from "axios";
 import Records from './RecordsList';
 
-class Leaderboard extends Component {
+class Placements extends Component {
   constructor(props) {
         super(props);
         this.state={Records: []};
@@ -47,4 +47,4 @@ class Leaderboard extends Component {
   }
 }
 
-export default Leaderboard;
+export default Placements;
